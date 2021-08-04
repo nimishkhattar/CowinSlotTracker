@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.green,
             title: Text("Cowin Tracker"),
             actions: [
               IconButton(

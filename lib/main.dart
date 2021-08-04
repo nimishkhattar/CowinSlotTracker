@@ -3,6 +3,7 @@ import 'package:CoWin_Slot_Tracker/src/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'darktheme files/theme.dart';
 import 'src/home.dart';
 
 void main() {
@@ -16,8 +17,11 @@ class MyApp extends StatelessWidget {
       create: (_) => ThemeModel(),
       child: Consumer(builder: (context, ThemeModel themeNotifier, child) {
         return MaterialApp(
+          themeMode: ThemeMode.light,
           debugShowCheckedModeBanner: false,
-          theme: themeNotifier.isDark ? ThemeData.dark() : ThemeData.light(),
+          theme: themeNotifier.isDark
+              ? MyTheme.lightTheme(context)
+              : MyTheme.darkTheme(context),
           home: HomePage(),
         );
       }),
