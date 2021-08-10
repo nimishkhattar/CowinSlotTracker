@@ -24,10 +24,17 @@ class HomePage extends StatelessWidget {
             ],
             bottom: TabBar(
               tabs: [Tab(text: "By District"), Tab(text: "By Pin")],
+          
+          
             ),
+            
           ),
+       body: TabBarView(
+         children: [],
+       ),
         ),
       );
+
     });
   }
 }

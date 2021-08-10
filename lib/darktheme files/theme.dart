@@ -10,6 +10,7 @@ class MyTheme {
   static ThemeData darkTheme(BuildContext context) => ThemeData(
         appBarTheme: AppBarTheme(backgroundColor: Color(0xff228B22)),
         brightness: Brightness.dark,
+        accentColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.black),
       );
 }
