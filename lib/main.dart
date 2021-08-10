@@ -1,5 +1,4 @@
 import 'package:CoWin_Slot_Tracker/darktheme%20files/theme_model.dart';
-import 'package:CoWin_Slot_Tracker/src/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
