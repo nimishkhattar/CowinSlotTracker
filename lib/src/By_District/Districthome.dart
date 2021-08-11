@@ -1,12 +1,12 @@
-
 import '../../src/By_District/states.dart';
 import 'package:flutter/material.dart';
-import '../../src/By_District/districtbase.dart';
+import './districts.dart';
 
 class DistrictHome extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => DistrictHomeState();
 }
+
 class DistrictHomeState extends State<DistrictHome> {
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,9 @@ class DistrictHomeState extends State<DistrictHome> {
         children: [
           Column(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: 110)
-                // color: Colors.white.withOpacity(1),
-              ),
+              Padding(padding: EdgeInsets.only(top: 110)
+                  // color: Colors.white.withOpacity(1),
+                  ),
               Divider(
                 thickness: 2,
               ),
