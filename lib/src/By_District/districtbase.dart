@@ -57,7 +57,7 @@ class _DistrictslayoutState extends State<Districtslayout> {
   _createwig() {
     List<Widget> columnContent = [];
     int i = 0;
-    for (String content in global.districts) {
+    for (String _ in global.districts) {
       i++;
       columnContent.add(
         ListTile(
