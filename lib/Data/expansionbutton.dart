@@ -7,13 +7,13 @@ class ExpnButton extends StatefulWidget {
   final Widget wiget;
   ExpnButton({this.hint, this.wiget});
   @override
-  _ExpnButtonState createState() => _ExpnButtonState(wig: wiget, text: hint);
+  _ExpnButtonState createState() => _ExpnButtonState(wigt: wiget, text: hint);
 }
 
 class _ExpnButtonState extends State<ExpnButton> {
-  Widget wig;
+  Widget wigt;
   String text;
-  _ExpnButtonState({this.wig, this.text});
+  _ExpnButtonState({this.wigt, this.text});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -24,7 +24,7 @@ class _ExpnButtonState extends State<ExpnButton> {
           ExpansionPanel(
             canTapOnHeader: true,
             body: Container(
-              child: wig,
+              child: wigt,
             ),
             headerBuilder: (BuildContext context, bool isExpanded) {
               return Container(
