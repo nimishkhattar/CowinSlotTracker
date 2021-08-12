@@ -23,7 +23,9 @@ class DefaultButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: ElevatedButton(
+          
       style: ButtonStyle(
+        elevation: MaterialStateProperty.all(6),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100.0),

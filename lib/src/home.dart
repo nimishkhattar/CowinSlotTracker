@@ -1,5 +1,5 @@
-import 'package:CoWin_Slot_Tracker/darktheme%20files/theme_model.dart';
-import 'package:CoWin_Slot_Tracker/src/By_District/Districthome.dart';
+import './/darktheme%20files/theme_model.dart';
+import './/src/By_District/Districthome.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

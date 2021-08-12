@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './scrollbutton.dart';
-
+import './customexpansionpanel.dart' as ex;
 class ExpnButton extends StatefulWidget {
   final String hint;
   final Widget wiget;
@@ -9,32 +9,31 @@ class ExpnButton extends StatefulWidget {
   @override
   _ExpnButtonState createState() => _ExpnButtonState(wigt: wiget, text: hint);
 }
-
 class _ExpnButtonState extends State<ExpnButton> {
   Widget wigt;
   String text;
+  bool expanded = false;
   _ExpnButtonState({this.wigt, this.text});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: ExpansionPanelList(
+      child: ex.ExpansionPanelList(
         animationDuration: Duration(milliseconds: 1000),
-        // elevation: 0,
+        elevation: 0,
         children: [
-          ExpansionPanel(
+          ex.ExpansionPanel(
             canTapOnHeader: true,
             body: Container(
               child: wigt,
             ),
             headerBuilder: (BuildContext context, bool isExpanded) {
-              return Container(
-                  child: DefaultButton(
+              return DefaultButton(
                 text: text,
                 onpressed: change,
                 icon: null,
-              ));
+              );
             },
-            isExpanded: districts.expanded,
+            isExpanded: expanded,
           )
         ],
         expansionCallback: (int, bool status) {
@@ -46,18 +45,7 @@ class _ExpnButtonState extends State<ExpnButton> {
 
   change() {
     setState(() {
-      districts.expanded = !districts.expanded;
+      expanded = !expanded;
     });
   }
-
-  Model districts = Model(
-    headerItem: 'Select Districts',
-  );
-}
-
-class Model {
-  bool expanded = false;
-  String headerItem;
-  String discription;
-  Model({this.headerItem, this.discription});
 }

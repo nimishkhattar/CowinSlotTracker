@@ -1,4 +1,4 @@
-import 'package:CoWin_Slot_Tracker/darktheme%20files/theme_preferences.dart';
+import './/darktheme%20files/theme_preferences.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

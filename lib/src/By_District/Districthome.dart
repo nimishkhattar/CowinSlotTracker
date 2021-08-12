@@ -16,7 +16,7 @@ class DistrictHomeState extends State<DistrictHome> {
         children: [
           Column(
             children: [
-              Padding(padding: EdgeInsets.only(top: 110)
+              Padding(padding: EdgeInsets.only(top: 120)
                   // color: Colors.white.withOpacity(1),
                   ),
               Divider(
@@ -27,7 +27,7 @@ class DistrictHomeState extends State<DistrictHome> {
           ),
           Column(
             children: [
-              new SizedBox(height: 50, child: StateMenu()),
+              new SizedBox(height: 60, child: StateMenu()),
               new Flexible(child: Districtslayout()),
             ],
           ),

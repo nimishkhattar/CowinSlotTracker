@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import '../Data//scrollbutton.dart';
 
+// import '../Data//scrollbutton.dart';
 class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         appBarTheme: AppBarTheme(
@@ -9,6 +9,13 @@ class MyTheme {
         ),
       );
   static ThemeData darkTheme(BuildContext context) => ThemeData(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white30),
+          ),
+        ),
+        
+        scaffoldBackgroundColor: Colors.black,
         appBarTheme: AppBarTheme(color: Color(0xff228B22)),
         backgroundColor: Colors.black,
         brightness: Brightness.dark,

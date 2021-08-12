@@ -1,4 +1,4 @@
-package com.example.CoWin_Slot_Tracker
+package com.example.test
 
 import io.flutter.embedding.android.FlutterActivity
 
