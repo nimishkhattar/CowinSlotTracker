@@ -37,18 +37,6 @@ class _DistrictslayoutState extends State<Districtslayout> {
         ),
       );
     }
-
     return columnContent;
   }
-
-  Model districts = Model(
-    headerItem: 'Select Districts',
-  );
-}
-
-class Model {
-  bool expanded = false;
-  String headerItem;
-  String discription;
-  Model({this.headerItem, this.discription});
 }

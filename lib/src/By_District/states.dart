@@ -23,30 +23,33 @@ class _StateMenuState extends State<StateMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                DirectSelect(
-                    itemExtent: 40.0,
-                    selectedIndex: selectedIndex1,
-                    // backgroundColor: Colors.red,
-                    child: MySelectionItem(
-                      isForList: false,
-                      title: global.states[selectedIndex1],
-                    ),
-                    onSelectedItemChanged: (index) {
-                      setState(() {
-                        selectedIndex1 = index;
-                      });
-                    },
-                    items: _buildItems1()),
-              ]),
-        ),
+      child: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              DirectSelect(
+                  itemExtent: 50.0,
+                  selectedIndex: selectedIndex1,
+                  backgroundColor: Theme.of(context)
+                      .scaffoldBackgroundColor
+                      .withOpacity(0.92),
+                  child: MySelectionItem(
+                    isForList: false,
+                    title: global.states[selectedIndex1],
+                  ),
+                  onSelectedItemChanged: (index) {
+                    setState(() {
+                      selectedIndex1 = index;
+                    });
+                  },
+                  items: _buildItems1()),
+            ]),
+      ),
     );
   }
 }
+
 //You can use any Widget
 class MySelectionItem extends StatelessWidget {
   final String title;
@@ -56,16 +59,16 @@ class MySelectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:50.0,
+      height: 50.0,
       child: isForList
-          ? Container(
+          ? Padding(
               child: _buildItem(context),
-              // padding: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(5),
             )
           : DefaultButton(
               icon: CupertinoIcons.arrow_up_arrow_down_circle_fill,
               text: title,
-              onpressed: () {},//not of any use here 
+              onpressed: () {}, //not of any use here
             ),
     );
   }
@@ -74,7 +77,10 @@ class MySelectionItem extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      child: Text(title),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.bodyText1,
+      ),
     );
   }
 }

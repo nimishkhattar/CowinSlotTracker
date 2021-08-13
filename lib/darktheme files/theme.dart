@@ -14,7 +14,7 @@ class MyTheme {
             backgroundColor: MaterialStateProperty.all(Colors.white30),
           ),
         ),
-        
+        textTheme: TextTheme(bodyText1: TextStyle().apply(color: Colors.white)),
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: AppBarTheme(color: Color(0xff228B22)),
         backgroundColor: Colors.black,
@@ -22,5 +22,6 @@ class MyTheme {
         accentColor: Colors.black,
         iconTheme: IconThemeData(color: Colors.black),
         buttonColor: Colors.red,
+        
       );
 }
