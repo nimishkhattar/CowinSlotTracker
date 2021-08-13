@@ -1,3 +1,5 @@
+import 'package:cowin_slot_tracker/bypin/tabbypin.dart';
+
 import './/darktheme%20files/theme_model.dart';
 import './/src/By_District/Districthome.dart';
 import 'package:flutter/material.dart';
@@ -25,17 +27,16 @@ class HomePage extends StatelessWidget {
             ],
             bottom: TabBar(
               tabs: [Tab(text: "By District"), Tab(text: "By Pin")],
-          
-          
             ),
-            
           ),
-       body: TabBarView(
-         children: [DistrictHome(),Text("hello"),],
-       ),
+          body: TabBarView(
+            children: [
+              DistrictHome(),
+              Tabbypin(),
+            ],
+          ),
         ),
       );
-
     });
   }
 }
