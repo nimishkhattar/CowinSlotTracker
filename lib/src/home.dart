@@ -1,5 +1,4 @@
-import 'package:cowin_slot_tracker/bypin/tabbypin.dart';
-
+import './/src/bypin/tabbypin.dart';
 import './/darktheme%20files/theme_model.dart';
 import './/src/By_District/Districthome.dart';
 import 'package:flutter/material.dart';

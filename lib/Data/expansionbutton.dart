@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import './scrollbutton.dart';
 import './customexpansionpanel.dart' as ex;
+
 class ExpnButton extends StatefulWidget {
+  final expanded;
   final String hint;
   final Widget wiget;
-  ExpnButton({this.hint, this.wiget});
+  final upperwig;
+  ExpnButton({this.hint, this.wiget, this.upperwig, this.expanded = false});
   @override
-  _ExpnButtonState createState() => _ExpnButtonState(wigt: wiget, text: hint);
+  _ExpnButtonState createState() => _ExpnButtonState(
+      wigt: wiget, text: hint, upperwig: upperwig, expanded: expanded);
 }
+
 class _ExpnButtonState extends State<ExpnButton> {
   Widget wigt;
   String text;
   bool expanded = false;
-  _ExpnButtonState({this.wigt, this.text});
+  Widget upperwig;
+  _ExpnButtonState({this.wigt, this.text, this.upperwig, this.expanded});
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -27,11 +33,13 @@ class _ExpnButtonState extends State<ExpnButton> {
               child: wigt,
             ),
             headerBuilder: (BuildContext context, bool isExpanded) {
-              return DefaultButton(
-                text: text,
-                onpressed: change,
-                icon: null,
-              );
+              return upperwig == null
+                  ? DefaultButton(
+                      text: text,
+                      onpressed: change,
+                      icon: null,
+                    )
+                  : upperwig;
             },
             isExpanded: expanded,
           )
