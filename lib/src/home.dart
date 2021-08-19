@@ -12,8 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ThemeModel themeNotifier, child) {
@@ -38,11 +36,11 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           body: TabBarView(
-            children: [
-              DistrictHome(),
-              Tabbypin(),
-            ],
-          ),
+                  children: [
+                    DistrictHome(),
+                    Tabbypin(),
+                  ],
+                ),
         ),
       );
     });
