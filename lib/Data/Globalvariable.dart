@@ -1,39 +1,14 @@
 library project.globals;
-
 import 'package:flutter/foundation.dart';
-
+int noofstates = 0;
 bool isExpanded = false;
 var states = [
   "Select state",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
 ];
 List<String> districts = [
   "Test1",
   "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
-  "Test1",
-  "Test2",
 ];
-
 class PinModel extends ChangeNotifier {
   final List<String> pincode = [];
   void add(pin) {

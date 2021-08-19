@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:direct_select/direct_select.dart';
-import '../../data/scrollbutton.dart';
+import '../../data/styles/scrollbutton.dart';
 import '../../Data/Globalvariable.dart' as global;
 // import 'package:cupertino_icons/cupertino_icons.dart';
 
@@ -11,7 +11,7 @@ class StateMenu extends StatefulWidget {
 }
 
 class _StateMenuState extends State<StateMenu> {
-  int selectedIndex1 = 0;
+  int selectedIndex1 = global.noofstates;
   List<Widget> _buildItems1() {
     return global.states
         .map((val) => MySelectionItem(
@@ -79,7 +79,8 @@ class MySelectionItem extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         title,
-        style: Theme.of(context).textTheme.bodyText1,
+        style: Theme.of(context).textTheme.bodyText2,
+        
       ),
     );
   }

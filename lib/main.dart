@@ -1,11 +1,14 @@
 import 'darktheme%20files/theme_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:cowin_slot_tracker/src/update.dart';
 
 import 'darktheme files/theme.dart';
 import 'src/home.dart';
 
 void main() {
+
+  fetchstates(url: 'https://cdn-api.co-vin.in/api/v2/admin/location/states');
   runApp(MyApp());
 }
 

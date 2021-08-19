@@ -35,14 +35,6 @@ class Tabbypin extends StatelessWidget {
             );
           }),
         ),
-        TextButton(
-          style: TextButton.styleFrom(
-            primary: Colors.green,
-          ),
-          onPressed: () {
-          },
-          child: Text('find'),
-        )
       ],
     );
   }

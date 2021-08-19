@@ -1,7 +1,31 @@
-// import 'dart:developer' as developer;
 
-// void update() {
-//   developer.log('log me', name: 'my.app.category');
-//   developer.log('log me 1', name: 'my.other.category');
-//   developer.log('log me 2', name: 'my.other.category');
-// }
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import '../Data/Globalvariable.dart' as global;
+
+void fetchstates(
+    {String url, String districtid, String pin, String type}) async {
+  Map<String, String> data = {'Accept-Language': 'hi_IN'};
+  final response = await http.get(Uri.parse(url), headers: data);
+  if (response.statusCode == 200) {
+    
+     global.noofstates = jsonDecode(response.body)['states'].length;
+    for (int stateindex = 0; stateindex < global.noofstates; stateindex++)
+      global.states
+          .insert(0, (jsonDecode(response.body)['states'][stateindex]['state_name']));
+  } else {
+    print('not found');
+    // return ('Failed to load');
+    throw Exception('Failed to load');
+  }
+}
+// String dad;
+//   dynamic date;
+//   if (type == 'pin' || type == 'district') {
+//     date = DateTime.now().toString().split(' ')[0].split('-');
+//     dad = date[2].toString() +
+//         '-' +
+//         date[1].toString() +
+//         '-' +
+//         date[0].toString();
+//   }
