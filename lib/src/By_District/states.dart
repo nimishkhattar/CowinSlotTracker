@@ -11,13 +11,16 @@ class StateMenu extends StatefulWidget {
 }
 
 class _StateMenuState extends State<StateMenu> {
-  int selectedIndex1 = global.noofstates;
+
   List<Widget> _buildItems1() {
-    return global.states
-        .map((val) => MySelectionItem(
-              title: val,
-            ))
-        .toList();
+    return global.states.map(
+      (val) {
+        // print(global.st[0]['state_name']);
+        return MySelectionItem(
+          title: val['state_name'].toString(),
+        );
+      },
+    ).toList();
   }
 
   @override
@@ -30,17 +33,17 @@ class _StateMenuState extends State<StateMenu> {
             children: <Widget>[
               DirectSelect(
                   itemExtent: 50.0,
-                  selectedIndex: selectedIndex1,
+                  selectedIndex: global.noofstates,
                   backgroundColor: Theme.of(context)
                       .scaffoldBackgroundColor
                       .withOpacity(0.92),
                   child: MySelectionItem(
                     isForList: false,
-                    title: global.states[selectedIndex1],
+                    title: global.states[global.noofstates]['state_name'].toString(),
                   ),
                   onSelectedItemChanged: (index) {
                     setState(() {
-                      selectedIndex1 = index;
+                      global.noofstates = index;
                     });
                   },
                   items: _buildItems1()),
@@ -80,7 +83,6 @@ class MySelectionItem extends StatelessWidget {
       child: Text(
         title,
         style: Theme.of(context).textTheme.bodyText2,
-        
       ),
     );
   }
