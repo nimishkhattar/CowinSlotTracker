@@ -4,6 +4,7 @@ import 'package:direct_select/direct_select.dart';
 import '../../data/styles/scrollbutton.dart';
 import '../../Data/Globalvariable.dart' as global;
 // import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:provider/provider.dart';
 
 class StateMenu extends StatefulWidget {
   @override
@@ -11,7 +12,6 @@ class StateMenu extends StatefulWidget {
 }
 
 class _StateMenuState extends State<StateMenu> {
-
   List<Widget> _buildItems1() {
     return global.states.map(
       (val) {
@@ -31,22 +31,29 @@ class _StateMenuState extends State<StateMenu> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              DirectSelect(
-                  itemExtent: 50.0,
-                  selectedIndex: global.noofstates,
-                  backgroundColor: Theme.of(context)
-                      .scaffoldBackgroundColor
-                      .withOpacity(0.92),
-                  child: MySelectionItem(
-                    isForList: false,
-                    title: global.states[global.noofstates]['state_name'].toString(),
-                  ),
-                  onSelectedItemChanged: (index) {
-                    setState(() {
-                      global.noofstates = index;
-                    });
-                  },
-                  items: _buildItems1()),
+              Consumer(builder:
+                  (context, global.DistrictModel districtModel, child) {
+                return DirectSelect(
+                    itemExtent: 50.0,
+                    selectedIndex: global.noofstates,
+                    backgroundColor: Theme.of(context)
+                        .scaffoldBackgroundColor
+                        .withOpacity(0.92),
+                    child: MySelectionItem(
+                      isForList: false,
+                      title: global.states[global.noofstates]['state_name']
+                          .toString(),
+                    ),
+                    onSelectedItemChanged: (index) {
+                      setState(() {
+                        global.noofstates = index;
+                        districtModel.fetchdistricts(
+                            stateid:
+                                global.states[index]['state_id'].toString());
+                      });
+                    },
+                    items: _buildItems1());
+              }),
             ]),
       ),
     );

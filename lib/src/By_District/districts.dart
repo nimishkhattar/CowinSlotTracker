@@ -1,6 +1,6 @@
-import '../../Data/styles/expansionbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import '../../Data/Globalvariable.dart' as global;
 // import './customexpansionpanel.dart' as ex;
 
@@ -12,26 +12,28 @@ class Districtslayout extends StatefulWidget {
 class _DistrictslayoutState extends State<Districtslayout> {
   @override
   Widget build(BuildContext context) {
-    return ExpnButton(wiget: _totalwig(), hint: "Select Districts");
+    return Consumer(
+        builder: (context, global.DistrictModel districtModel, child) {
+      return _totalwig(districtModel.district);
+    });
   }
 
-  _totalwig() {
+  _totalwig(districts) {
     return ListView(
+      scrollDirection: Axis.vertical,
       shrinkWrap: true,
       padding: const EdgeInsets.all(20.0),
-      children: _createwig(),
+      children: _createwig(districts),
     );
   }
 
-  _createwig() {
+  _createwig(districts) {
     List<Widget> columnContent = [];
-    int i = 0;
-    for (String _ in global.districts) {
-      i++;
+    for (dynamic dis in districts) {
       columnContent.add(
         ListTile(
           title: Text(
-            "Test" + i.toString(),
+            dis['district_name'],
             style: TextStyle(fontSize: 18.0),
           ),
         ),

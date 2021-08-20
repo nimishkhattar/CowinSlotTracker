@@ -6,7 +6,7 @@ class MenuBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, global.PinModel pinModel, child) {
-                print('menu');
+      global.noofstates = 37;
       return ListView.builder(
         itemCount: pinModel.pincode.length,
         itemBuilder: (context, index) {
@@ -21,7 +21,7 @@ class MenuBar extends StatelessWidget {
             },
             background: Container(color: Colors.red),
             child: ListTile(
-              title: Text(item),
+              title: Text(item ?? ''),
             ),
           );
         },

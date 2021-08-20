@@ -35,12 +35,15 @@ class _HomePageState extends State<HomePage> {
               tabs: [Tab(text: "By District"), Tab(text: "By Pin")],
             ),
           ),
-          body: TabBarView(
-                  children: [
-                    DistrictHome(),
-                    Tabbypin(),
-                  ],
-                ),
+          body: Padding(
+            padding: EdgeInsets.all(15),
+            child: TabBarView(
+              children: [
+                DistrictHome(),
+                Tabbypin(),
+              ],
+            ),
+          ),
         ),
       );
     });

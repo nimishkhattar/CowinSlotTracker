@@ -1,6 +1,10 @@
+import 'package:cowin_slot_tracker/Data/styles/expansionbutton.dart';
+
 import '../../src/By_District/states.dart';
 import 'package:flutter/material.dart';
 import './districts.dart';
+import 'package:provider/provider.dart';
+import '../../Data/Globalvariable.dart' as global;
 
 class DistrictHome extends StatefulWidget {
   @override
@@ -10,29 +14,36 @@ class DistrictHome extends StatefulWidget {
 class DistrictHomeState extends State<DistrictHome> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(15),
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              Padding(padding: EdgeInsets.only(top: 120)
-                  // color: Colors.white.withOpacity(1),
-                  ),
-              Divider(
-                thickness: 2,
-              ),
-              Text("hey"),
-            ],
-          ),
-          Column(
-            children: [
-              new SizedBox(height: 60, child: StateMenu()),
-              new Flexible(child: Districtslayout()),
-            ],
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: 120)
+                // color: Colors.white.withOpacity(1),
+                ),
+            Divider(
+              thickness: 2,
+            ),
+            Text("hey"),
+          ],
+        ),
+        ChangeNotifierProvider(
+          create: (_) => global.DistrictModel(),
+          child: Consumer(
+              builder: (context, global.DistrictModel pinModel, child) {
+            return Column(
+              children: [
+                new SizedBox(height: 60, child: StateMenu()),
+                new Flexible(
+                    child: ExpnButton(
+                  wiget: Districtslayout(),
+                  hint: 'Select Districts',
+                )),
+              ],
+            );
+          }),
+        ),
+      ],
     );
   }
 }

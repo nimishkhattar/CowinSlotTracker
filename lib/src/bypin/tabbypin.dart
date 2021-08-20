@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import '../../Data/Globalvariable.dart' as global;
 
-
 class Tabbypin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,7 @@ class Tabbypin extends StatelessWidget {
       children: [
         ChangeNotifierProvider(
           create: (_) => global.PinModel(),
-          child: Consumer(
-              builder: (context, global.PinModel pinModel, child) {
+          child: Consumer(builder: (context, global.PinModel pinModel, child) {
             return Flexible(
               child: kk(),
             );

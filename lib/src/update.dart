@@ -26,13 +26,15 @@ Future<int> fetchstates(
   Map<String, String> data = {'Accept-Language': 'hi_IN'};
   final response = await http.get(Uri.parse(url), headers: data);
   if (response.statusCode == 200) {
-        global.states=[{'state_id': 1000, 'state_name': 'Select states'}];
+    global.states = [
+      {'state_id': 1000, 'state_name': 'Select states'}
+    ];
 
     dynamic jsonresponse = jsonDecode(response.body);
     global.noofstates = jsonresponse['states'].length;
     for (int stateindex = 0; stateindex < global.noofstates; stateindex++)
-      global.states.insert(
-          0, (jsonDecode(response.body)['states'][stateindex]));
+      global.states
+          .insert(0, (jsonDecode(response.body)['states'][stateindex]));
     return 1;
   } else {
     print('not found');
@@ -50,3 +52,5 @@ Future<int> fetchstates(
 //         '-' +
 //         date[0].toString();
 //   }
+
+
