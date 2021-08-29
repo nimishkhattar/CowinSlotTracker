@@ -21,7 +21,7 @@ class MenuBar extends StatelessWidget {
             },
             background: Container(color: Colors.red),
             child: ListTile(
-              title: Text(item ?? ''),
+              title: Text(item ?? 'Enter Pin'),
             ),
           );
         },

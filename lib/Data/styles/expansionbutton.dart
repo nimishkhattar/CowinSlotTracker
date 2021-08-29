@@ -23,16 +23,14 @@ class _ExpnButtonState extends State<ExpnButton> {
   _ExpnButtonState({this.wigt, this.text, this.upperwig, this.expanded});
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ex.ExpansionPanelList(
+    return 
+        ex.ExpansionPanelList(
         animationDuration: Duration(milliseconds: 1000),
         elevation: 0,
         children: [
           ex.ExpansionPanel(
             canTapOnHeader: true,
-            body: Container(
-              child: wigt,
-            ),
+            body:  wigt,
             headerBuilder: (BuildContext context, bool isExpanded) {
               return upperwig == null
                   ? DefaultButton(
@@ -48,7 +46,6 @@ class _ExpnButtonState extends State<ExpnButton> {
         expansionCallback: (int, bool status) {
           change();
         },
-      ),
     );
   }
 

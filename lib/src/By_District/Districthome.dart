@@ -33,12 +33,15 @@ class DistrictHomeState extends State<DistrictHome> {
               builder: (context, global.DistrictModel pinModel, child) {
             return Column(
               children: [
-                new SizedBox(height: 60, child: StateMenu()),
-                new Flexible(
+                SizedBox(height: 60, child: StateMenu()),
+                SizedBox(
                     child: ExpnButton(
-                  wiget: Districtslayout(),
+                  wiget: ConstrainedBox(child: Districtslayout(),
+                    constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height*(0.6)),
+                  ),
                   hint: 'Select Districts',
                 )),
+                // Districtslayout()
               ],
             );
           }),

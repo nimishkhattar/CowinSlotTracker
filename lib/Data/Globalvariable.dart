@@ -7,17 +7,18 @@ import 'package:flutter/foundation.dart';
 bool isExpanded = false;
 List<dynamic> states;
 int noofstates;
+// List<String> dstricts = [];
 
 class DistrictModel extends ChangeNotifier {
-  List<dynamic> district = [];
+  List<dynamic> district = [{"district_id": 1000, "district_name": "Select State"}];
 
   void fetchdistricts({
     String url = 'https://cdn-api.co-vin.in/api/v2/admin/location/districts/',
     String stateid,
   }) async {
-    if (stateid == '100')
+    if (stateid == '1000')
       district = [
-        {"district_id": 1000, "district_name": "Select District"}
+        {"district_id": 1000, "district_name": "Select State"}
       ];
     else {
       url += stateid;
