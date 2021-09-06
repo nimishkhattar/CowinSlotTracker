@@ -21,6 +21,36 @@ import '../Data/Globalvariable.dart' as global;
 //     throw Exception('Failed to load');
 //   }
 // }
+Future<int> fetchesults(type, id) async {
+  final date = DateTime.now().toString().split(' ')[0].split('-');
+  final formateddate =
+      date[2].toString() + '-' + date[1].toString() + '-' + date[0].toString();
+  String whid = type == 'Pin' ? 'pincode' : 'district_id';
+  final furl =
+      'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarBy' +
+          type +
+          '?' +
+          whid +
+          '=' +
+          id.toString() +
+          '&date=' +
+          formateddate.toString();
+
+  final response = await http.get(
+    Uri.parse(furl),
+  );
+  if (response.statusCode == 200) {
+    if (type == 'Pin')
+      global.pinadded.value.addAll(jsonDecode(response.body)['centers']);
+    else global.districtadded.value.addAll(jsonDecode(response.body)['centers']);
+    return 1;
+  } else {
+    print('not found');
+    // return ('Failed to load');
+    throw Exception('Failed to load');
+  }
+}
+
 Future<int> fetchstates(
     {String url, String districtid, String pin, String type}) async {
   Map<String, String> data = {'Accept-Language': 'hi_IN'};

@@ -1,4 +1,5 @@
 import 'package:cowin_slot_tracker/Data/styles/expansionbutton.dart';
+import 'package:cowin_slot_tracker/src/Displaydata/districtview.dart';
 
 import '../../src/By_District/states.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class DistrictHomeState extends State<DistrictHome> {
             Divider(
               thickness: 2,
             ),
-            Text("hey"),
+            Expanded(child: Singlesession()),
           ],
         ),
         ChangeNotifierProvider(
@@ -36,8 +37,10 @@ class DistrictHomeState extends State<DistrictHome> {
                 SizedBox(height: 60, child: StateMenu()),
                 SizedBox(
                     child: ExpnButton(
-                  wiget: ConstrainedBox(child: Districtslayout(),
-                    constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height*(0.6)),
+                  wiget: ConstrainedBox(
+                    child: Districtslayout(),
+                    constraints: BoxConstraints(
+                        maxHeight: MediaQuery.of(context).size.height * (0.6)),
                   ),
                   hint: 'Select Districts',
                 )),

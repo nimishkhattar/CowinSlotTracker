@@ -1,8 +1,10 @@
+// import 'package:cowin_slot_tracker/src/update.dart';
 import './/src/bypin/tabbypin.dart';
 import './/darktheme%20files/theme_model.dart';
 import './/src/By_District/Districthome.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:cowin_slot_tracker/Data/Globalvariable.dart' as global;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -43,6 +45,16 @@ class _HomePageState extends State<HomePage> {
                 Tabbypin(),
               ],
             ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+
+              global.districtadded.value = [];
+              global.pinadded.value = [];
+            },
+            // autofocus: ,
+            backgroundColor: Colors.green[300],
+            child: Icon(Icons.search_rounded),
           ),
         ),
       );

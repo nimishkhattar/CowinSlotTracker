@@ -8,9 +8,7 @@ class EnterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, global.PinModel pinModel, child) {
-          print('text');
-
-      return SizedBox(
+        return SizedBox(
         height: 80,
         child: TextField(
           onChanged: (value) {
@@ -25,7 +23,9 @@ class EnterText extends StatelessWidget {
                   primary: Colors.blue,
                 ),
                 onPressed: () {
-                  pinModel.add(pin);
+                  if((int.tryParse(pin)!=null) & (int.tryParse(pin)>99999))
+                    if(!pinModel.pincode.any((element) => element==pin))
+                      pinModel.add(pin);
                 },
                 child: Text('Add'),
               ),
