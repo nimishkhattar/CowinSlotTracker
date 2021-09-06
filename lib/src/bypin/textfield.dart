@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../Data/Globalvariable.dart' as global;
 import 'package:provider/provider.dart';
-
 // ignore: must_be_immutable
 class EnterText extends StatelessWidget {
   String pin;
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, global.PinModel pinModel, child) {
-        return SizedBox(
+      return SizedBox(
         height: 80,
         child: TextField(
           onChanged: (value) {
@@ -23,9 +22,10 @@ class EnterText extends StatelessWidget {
                   primary: Colors.blue,
                 ),
                 onPressed: () {
-                  if((int.tryParse(pin)!=null) & (int.tryParse(pin)>99999))
-                    if(!pinModel.pincode.any((element) => element==pin))
-                      pinModel.add(pin);
+                  if ((int.tryParse(pin) != null) &
+                      (int.tryParse(pin) >
+                          99999)) if (!pinModel.pincode
+                      .any((element) => element == pin)) pinModel.add(pin);
                 },
                 child: Text('Add'),
               ),

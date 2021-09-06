@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:direct_select/direct_select.dart';
-import '../../data/styles/scrollbutton.dart';
+import 'package:cowin_slot_tracker/Data/styles/Defaultbutton.dart';
 import '../../Data/Globalvariable.dart' as global;
 // import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:provider/provider.dart';

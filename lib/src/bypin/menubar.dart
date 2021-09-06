@@ -7,25 +7,30 @@ class MenuBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, global.PinModel pinModel, child) {
       global.noofstates = 37;
-      return SizedBox(
-        child: ListView.builder(
-          itemCount: pinModel.pincode.length,
-          itemBuilder: (context, index) {
-            final item = pinModel.pincode[index];
-            return Dismissible(
-              key: UniqueKey(),
-              onDismissed: (direction) {
-                pinModel.removeAt(index);
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(SnackBar(content: Text('$item Removed')));
-              },
-              background: Container(color: Colors.red),
-              child: ListTile(
-                title: Text(item ?? 'Enter Pin'),
+      return ListView.builder(
+        itemCount: pinModel.pincode.length,
+        itemBuilder: (context, index) {
+          final item = pinModel.pincode[index];
+          return Dismissible(
+            key: UniqueKey(),
+            onDismissed: (direction) {
+              pinModel.removeAt(index);
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text('$item Removed')));
+            },
+            background: Container(color: Colors.red),
+            child: Container(
+              color: Theme.of(context).backgroundColor,
+              padding: EdgeInsets.all(2),
+              child: Card(
+                elevation: 24,
+                child: ListTile(
+                  title: Text(item ?? 'Enter Pin'),
+                ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       );
     });
   }

@@ -10,11 +10,12 @@ import '../../Data/Globalvariable.dart' as global;
 class Tabbypin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    global.noofstates = 37;
     return Stack(
       children: [
         Column(
           children: [
-            Padding(padding: EdgeInsets.only(top: 90)),
+            Padding(padding: EdgeInsets.only(top: 70)),
             Divider(
               thickness: 2,
             ),
@@ -24,15 +25,12 @@ class Tabbypin extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => global.PinModel(),
           child: Consumer(
+            child: MenuBar(),
             builder: (context, global.PinModel pinModel, child) {
-              return SingleChildScrollView(
-                child: ExpnButton(
-                  wiget: SizedBox(
-                    child: MenuBar(),
-                    height: 200,
-                  ),
-                  upperwig: EnterText(),
-                ),
+              return ExpnButton(
+                wiget: child,
+                upperwig: EnterText(),
+                padding: 75,
               );
             },
           ),

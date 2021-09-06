@@ -24,7 +24,9 @@ class DefaultButton extends StatelessWidget {
     return Container(
         child: ElevatedButton(
           
+          
       style: ButtonStyle(
+        fixedSize: MaterialStateProperty.all(Size.fromHeight(50)),
         elevation: MaterialStateProperty.all(6),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(

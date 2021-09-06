@@ -1,4 +1,3 @@
-// import 'package:cowin_slot_tracker/src/update.dart';
 import './/src/bypin/tabbypin.dart';
 import './/darktheme%20files/theme_model.dart';
 import './/src/By_District/Districthome.dart';
@@ -21,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: Text("Cowin Tracker"),
+            title: Text("Cowin Slot Tracker"),
             actions: [
               IconButton(
                   onPressed: () {
@@ -53,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               global.pinadded.value = [];
             },
             // autofocus: ,
-            backgroundColor: Colors.green[300],
+            backgroundColor: Theme.of(context).appBarTheme.color,
             child: Icon(Icons.search_rounded),
           ),
         ),
