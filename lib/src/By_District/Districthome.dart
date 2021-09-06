@@ -15,45 +15,47 @@ class DistrictHome extends StatefulWidget {
 class DistrictHomeState extends State<DistrictHome> {
   @override
   Widget build(BuildContext context) {
-    return
-        Stack(
+    return Stack(
+      children: [
+        Column(
           children: [
-            Column(
-              children: [
-                Padding(padding: EdgeInsets.only(top: 120)
-                    // color: Colors.white.withOpacity(1),
-                    ),
-                Divider(
-                  thickness: 2,
+            Padding(padding: EdgeInsets.only(top: 120)
+                // color: Colors.white.withOpacity(1),
                 ),
-                Expanded(child: Singlesession()),
-              ],
+            Divider(
+              thickness: 2,
             ),
-        ChangeNotifierProvider(
-      create: (_) => global.DistrictModel(),
-      child: Consumer(builder: (context, global.DistrictModel pinModel, child) {
-        return Column(
-          children: [
-            SizedBox(height: 60, child: StateMenu()),
-            // SizedBox(
-            //     child: ExpnButton(
-            //   wiget: ConstrainedBox(
-            //     child: Districtslayout(),
-            //     constraints: BoxConstraints(
-            //         maxHeight: MediaQuery.of(context).size.height * (0.6)),
-            //   ),
-            //   hint: 'Select Districts',
-            // )),
-            Expanded(
-              child: ExpnButton(
-                wiget: Districtslayout(),
-                hint: 'Select Districts',
-                padding:70 ,
-              ),
-            ),
+            Expanded(child: Singlesession()),
           ],
-        );
-      }),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => global.DistrictModel(),
+          child: Consumer(
+              builder: (context, global.DistrictModel pinModel, child) {
+            global.where = 'district';
+            // print('global.where');
+            return Column(
+              children: [
+                SizedBox(height: 60, child: StateMenu()),
+                // SizedBox(
+                //     child: ExpnButton(
+                //   wiget: ConstrainedBox(
+                //     child: Districtslayout(),
+                //     constraints: BoxConstraints(
+                //         maxHeight: MediaQuery.of(context).size.height * (0.6)),
+                //   ),
+                //   hint: 'Select Districts',
+                // )),
+                Expanded(
+                  child: ExpnButton(
+                    wiget: Districtslayout(),
+                    hint: 'Select Districts',
+                    padding: 70,
+                  ),
+                ),
+              ],
+            );
+          }),
         ),
       ],
     );

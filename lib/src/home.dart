@@ -47,8 +47,9 @@ class _HomePageState extends State<HomePage> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-
+              if(global.where=='district')
               global.districtadded.value = [];
+              else if(global.where=='pin')
               global.pinadded.value = [];
             },
             // autofocus: ,

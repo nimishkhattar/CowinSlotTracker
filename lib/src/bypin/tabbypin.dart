@@ -11,6 +11,8 @@ class Tabbypin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     global.noofstates = 37;
+    global.where = 'pin';
+    // print(global.where);
     return Stack(
       children: [
         Column(

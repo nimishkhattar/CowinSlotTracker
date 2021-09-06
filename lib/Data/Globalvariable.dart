@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
+String where = 'district';
 List<dynamic> reslt = [];
 bool isExpanded = false;
 List<dynamic> states;
