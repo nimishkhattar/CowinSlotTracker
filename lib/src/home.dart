@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
               global.pinadded.value = [];
             },
             // autofocus: ,
-            backgroundColor: Theme.of(context).appBarTheme.color,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             child: Icon(Icons.search_rounded),
           ),
         ),
