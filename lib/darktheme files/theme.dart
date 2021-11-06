@@ -20,9 +20,8 @@ class MyTheme {
         appBarTheme: AppBarTheme(color: Color(0xff228B22)),
         backgroundColor: Colors.black,
         brightness: Brightness.dark,
-        accentColor: Colors.black,
+        // colorScheme: ColorScheme.dark(),
         iconTheme: IconThemeData(color: Colors.black),
-        buttonColor: Colors.red,
         
       );
 }
